@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Fish VR"
-run/main_scene="uid://bdqxc1t7ot66n"
+run/main_scene="uid://cb1vh26xpoutg"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,8 +22,6 @@ config/icon="res://icon.svg"
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 
 [xr]
