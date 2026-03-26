@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bdqxc1t7ot66n"]
+
+[ext_resource type="Script" uid="uid://kqmgxq656dvh" path="res://scripts/main.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://b8u7myoaecm15" path="res://scenes/player.tscn" id="2_sugp2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
+
+[sub_resource type="Sky" id="Sky_0xm2m"]
+sky_material = SubResource("ProceduralSkyMaterial_ig7tw")
+
+[sub_resource type="Environment" id="Environment_ig7tw"]
+background_mode = 2
+sky = SubResource("Sky_0xm2m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
+
+[node name="Main" type="Node3D" unique_id=1854847894]
+script = ExtResource("1_0wfyh")
+
+[node name="XROrigin3D" parent="." unique_id=524498635 instance=ExtResource("2_sugp2")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1887087860]
+environment = SubResource("Environment_ig7tw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=805611773]
+transform = Transform3D(1, 0, 0, 0, 0.75482404, 0.6559273, 0, -0.6559273, 0.75482404, 0, 1.1395988, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=209959525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.240443)
+material = SubResource("StandardMaterial3D_0xm2m")

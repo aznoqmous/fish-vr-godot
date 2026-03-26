@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b8u7myoaecm15"]
+
+[ext_resource type="PackedScene" uid="uid://3gjkc6qju2n3" path="res://assets/hands/LeftHandHumanoid.gltf" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://bymg1qpy1tu2w" path="res://assets/hands/RightHandHumanoid.gltf" id="3_qhqgy"]
+
+[node name="XROrigin3D" type="XROrigin3D" unique_id=524498635]
+current = true
+
+[node name="XRCamera3D" type="XRCamera3D" parent="." unique_id=1069646456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="LeftHandController" type="XRNode3D" parent="." unique_id=1209878385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"/user/hand_tracker/left"
+pose = &"palm_pose"
+
+[node name="LeftHandMesh" parent="LeftHandController" unique_id=416374853 instance=ExtResource("2_g2els")]
+
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="LeftHandController/LeftHandMesh/Skeleton3D" parent_id_path=PackedInt32Array(416374853, 375867422) index="1" unique_id=1341067242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1, 0.5)
+
+[node name="RightHandController" type="XRNode3D" parent="." unique_id=1830001096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"/user/hand_tracker/right"
+pose = &"palm_pose"
+
+[node name="RightHandMesh" parent="RightHandController" unique_id=1506103605 instance=ExtResource("3_qhqgy")]
+
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="RightHandController/RightHandMesh/Skeleton3D" parent_id_path=PackedInt32Array(1506103605, 496555644) index="1" unique_id=2003775514]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1, 0.5)
+hand_tracker = &"/user/hand_tracker/right"
+
+[editable path="LeftHandController/LeftHandMesh"]
+[editable path="RightHandController/RightHandMesh"]
