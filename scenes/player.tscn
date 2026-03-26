@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b8u7myoaecm15"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
+
+[node name="XROrigin3D" type="XROrigin3D" unique_id=524498635]
+current = true
+
+[node name="XRCamera3D" type="XRCamera3D" parent="." unique_id=1069646456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="LeftHandXR3D" type="XRController3D" parent="." unique_id=215731927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+show_when_tracked = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LeftHandXR3D" unique_id=1092252503]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.2, -0.2865591, -0.29180026)
+material = SubResource("StandardMaterial3D_ig7tw")
+
+[node name="RightHandXR3D" type="XRController3D" parent="." unique_id=1240278051]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"right_hand"
+show_when_tracked = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="RightHandXR3D" unique_id=681574406]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.2, -0.287, -0.292)
+material = SubResource("StandardMaterial3D_ig7tw")
