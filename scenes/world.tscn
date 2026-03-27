@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cb1vh26xpoutg"]
 
-[ext_resource type="Script" uid="uid://kqmgxq656dvh" path="res://scripts/main.gd" id="1_817gm"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_817gm"]
 [ext_resource type="PackedScene" uid="uid://da6kdtdod0w1u" path="res://assets/FBX format/patch-grass-foliage.fbx" id="1_xgqkh"]
 [ext_resource type="PackedScene" uid="uid://bcnud81fo20fr" path="res://assets/FBX format/patch-sand-foliage.fbx" id="2_munwf"]
 [ext_resource type="PackedScene" uid="uid://lsernwc1nh1x" path="res://assets/FBX format/patch-sand.fbx" id="3_ts3gi"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bpgxkn8ftt3lu" path="res://assets/FBX format/structure-platform-dock.fbx" id="4_37qwj"]
 [ext_resource type="Script" uid="uid://d2lpikklyiw2n" path="res://scripts/boat.gd" id="6_luhhm"]
 [ext_resource type="PackedScene" uid="uid://ja721oaf1smj" path="res://assets/FBX format/boat-row-small.fbx" id="7_luhhm"]
-[ext_resource type="PackedScene" uid="uid://dh3tdx2rxj851" path="res://assets/FBX format/bottle-large.fbx" id="8_fh13f"]
 [ext_resource type="PackedScene" uid="uid://boug8eo0fgqy8" path="res://assets/FBX format/bottle.fbx" id="9_rup4s"]
 [ext_resource type="PackedScene" uid="uid://qi7ecs6fsplg" path="res://assets/FBX format/castle-door.fbx" id="10_4kbfs"]
 [ext_resource type="PackedScene" uid="uid://ci13tfe7x1tf4" path="res://assets/FBX format/rocks-a.fbx" id="10_f17e3"]
@@ -30,11 +29,16 @@
 [ext_resource type="PackedScene" uid="uid://dvfp2m78typpg" path="res://assets/FBX format/palm-detailed-bend.fbx" id="22_18clu"]
 [ext_resource type="PackedScene" uid="uid://dcidtehr2n24w" path="res://assets/FBX format/palm-detailed-straight.fbx" id="23_4wdv8"]
 [ext_resource type="PackedScene" uid="uid://bfi4e3wabyfkb" path="res://assets/FBX format/palm-straight.fbx" id="24_d46x8"]
-[ext_resource type="PackedScene" uid="uid://bjw6nv0o4rjor" path="res://assets/FBX format/structure-platform.fbx" id="25_navra"]
-[ext_resource type="PackedScene" uid="uid://csbype2lqfiju" path="res://assets/FBX format/structure-platform-dock-small.fbx" id="27_fh13f"]
+[ext_resource type="Texture2D" uid="uid://bv02c3kk21yj6" path="res://assets/skybox/sky_39_2k.png" id="34_ggc52"]
+[ext_resource type="PackedScene" uid="uid://cbeho2hrhtjjb" path="res://assets/FBX format/ship-wreck.fbx" id="36_l8ah6"]
 [ext_resource type="Shader" uid="uid://dxhapermvsiqc" path="res://shaders/water.gdshader" id="36_x2olw"]
 [ext_resource type="Texture2D" uid="uid://dc87r6ajayt8p" path="res://shaders/water-normal-map.jpg" id="37_817gm"]
+[ext_resource type="PackedScene" uid="uid://grd8xgdw85nh" path="res://assets/FBX format/tower-complete-large.fbx" id="37_e75v4"]
 [ext_resource type="PackedScene" uid="uid://yeg45saesse1" path="res://scenes/player.tscn" id="37_ggc52"]
+[ext_resource type="PackedScene" uid="uid://bt02m3py6wrfa" path="res://assets/FBX format/tower-complete-small.fbx" id="38_8u370"]
+[ext_resource type="PackedScene" uid="uid://drjw6fucrwuqp" path="res://assets/FBX format/tool-shovel.fbx" id="38_e75v4"]
+[ext_resource type="PackedScene" uid="uid://c5cuv7611bayp" path="res://assets/FBX format/flag-high-pennant.fbx" id="39_8u370"]
+[ext_resource type="PackedScene" uid="uid://s8fer0720m6s" path="res://assets/FBX format/cannon-mobile.fbx" id="40_rga7q"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_luhhm"]
 radius = 1.0
@@ -54,6 +58,12 @@ _data = {
 point_count = 5
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x2olw"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f17e3"]
+frequency = 0.3405
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x2olw"]
+noise = SubResource("FastNoiseLite_f17e3")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_817gm"]
 render_priority = 0
@@ -83,6 +93,7 @@ shader_parameter/boat_trail_scale = 1.0
 shader_parameter/reflection_dist = 5.0
 shader_parameter/foam_dist = 0.06999999843536
 shader_parameter/foam_color = Color(1, 1, 1, 1)
+shader_parameter/noise = SubResource("NoiseTexture2D_x2olw")
 shader_parameter/foam_vertex_height = 0.0
 shader_parameter/ssr_enabled = false
 shader_parameter/far_clip = 50.0
@@ -93,13 +104,15 @@ shader_parameter/test_float = 0.0
 [sub_resource type="PlaneMesh" id="PlaneMesh_1jxku"]
 material = SubResource("ShaderMaterial_817gm")
 size = Vector2(1000, 1000)
-subdivide_width = 100
-subdivide_depth = 100
+subdivide_width = 1000
+subdivide_depth = 1000
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_munwf"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rga7q"]
+panorama = ExtResource("34_ggc52")
 
 [sub_resource type="Sky" id="Sky_0xm2m"]
-sky_material = SubResource("ProceduralSkyMaterial_munwf")
+sky_material = SubResource("PanoramaSkyMaterial_rga7q")
+process_mode = 3
 
 [sub_resource type="Environment" id="Environment_ts3gi"]
 background_mode = 2
@@ -154,7 +167,7 @@ transform = Transform3D(0.79958946, -0.0027300564, 0.6005177, 3.4924066e-10, 0.9
 loop = false
 
 [node name="boat-row-small" parent="isle-1/Boat/Path3D/PathFollow3D" unique_id=721071758 instance=ExtResource("7_luhhm")]
-transform = Transform3D(-0.9939562, 2.3283445e-10, -0.109805316, -0.000499198, 1.0000005, 0.0045187376, 0.10980412, 0.004546189, -0.9939453, 0.096040726, -0.1613309, -0.1909728)
+transform = Transform3D(-0.9939561, 4.0850967e-10, -0.109805316, -0.0004991982, 1.0000002, 0.0045187366, 0.109804034, 0.0045461883, -0.9939453, 0.096040726, -0.06404741, -0.19053125)
 metadata/_edit_group_ = true
 
 [node name="palm-straight2" parent="isle-1" unique_id=1591977685 instance=ExtResource("24_d46x8")]
@@ -166,20 +179,27 @@ transform = Transform3D(0.48734155, 0, 0.87321144, 0, 1, 0, -0.87321144, 0, 0.48
 metadata/_edit_group_ = true
 
 [node name="rocks-a" parent="isle-1" unique_id=950540016 instance=ExtResource("10_f17e3")]
-transform = Transform3D(0.86889094, 0, -0.49500388, 0, 1, 0, 0.49500388, 0, 0.86889094, -9.321741, 0.09206581, 10.627148)
+transform = Transform3D(0.8602376, -0.14078029, -0.49007413, 0.1223227, 0.99004084, -0.06968678, 0.49500394, 0, 0.86889106, -9.321741, -1.3701601, 10.627148)
 
 [node name="rocks-b" parent="isle-1" unique_id=1063258942 instance=ExtResource("11_x2olw")]
-transform = Transform3D(0.79047585, 0, 0.6124933, 0, 1, 0, -0.6124933, 0, 0.79047585, -5.1992397, 0.026163101, -1.7118311)
+transform = Transform3D(0.29247633, -0.0628602, 0.9542044, 0.018421551, 0.9980223, 0.060100336, -0.9560952, 0, 0.2930559, -6.4105005, -1.7982001, -2.965292)
 
 [node name="rocks-c" parent="isle-1" unique_id=1317114546 instance=ExtResource("12_817gm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0986943, 0, 9.62598)
+transform = Transform3D(1, 0, 0, 0, 0.9960998, -0.08823368, 0, 0.08823368, 0.9960998, -2.0986943, -0.17173862, 8.899359)
 
 [node name="rocks-sand-a" parent="isle-1" unique_id=722587709 instance=ExtResource("13_ggc52")]
-transform = Transform3D(0.96968037, 0, -0.24437667, 0, 1, 0, 0.24437667, 0, 0.96968037, 1.7045994, 0, 2.8492255)
+transform = Transform3D(0.96613646, 0.08541692, -0.24348354, -0.08282711, 0.9963453, 0.020873902, 0.24437667, 0, 0.96968037, 1.7045994, 0, 2.8492255)
 
 [node name="palm-detailed-straight" parent="isle-1" unique_id=880624411 instance=ExtResource("23_4wdv8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3000636, 0.35937595, 3.5804453)
 metadata/_edit_group_ = true
+
+[node name="hole" parent="isle-1" unique_id=893654162 instance=ExtResource("20_hi6a0")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -10.647631, 0.43206882, 2.766601)
+metadata/_edit_group_ = true
+
+[node name="barrel" parent="isle-1" unique_id=1758189573 instance=ExtResource("17_e75v4")]
+transform = Transform3D(0.33605006, 0, -0.5210283, 0, 0.6199999, 0, 0.5210283, 0, 0.33605006, 0.75560904, 0.32096997, 0.96175027)
 
 [node name="isle-2" type="Node3D" parent="." unique_id=808199441]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.182167, 0, -15.192066)
@@ -197,7 +217,7 @@ transform = Transform3D(0.3069081, 0, 0.95173913, 0, 1, 0, -0.95173913, 0, 0.306
 transform = Transform3D(0.8115916, 0, -0.9898076, 0, 1.2800001, 0, 0.9898076, 0, 0.8115916, 1.0167255, 0, 3.5569792)
 
 [node name="crate-bottles" parent="isle-2/patch-sand4" unique_id=878268606 instance=ExtResource("15_l8ah6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3728695, 0.33179903, -1.4182768)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.3728695, 0.33179903, -1.4182768)
 metadata/_edit_group_ = true
 
 [node name="Boat2" type="Node3D" parent="isle-2" unique_id=461856204 node_paths=PackedStringArray("player")]
@@ -215,40 +235,40 @@ shape = SubResource("SphereShape3D_luhhm")
 [node name="Path3D" type="Path3D" parent="isle-2/Boat2" unique_id=1479182934]
 transform = Transform3D(-0.9982922, 0, 0.058417812, 0, 1, 0, -0.058417812, 0, -0.9982922, 0.9955616, 0, -0.41482735)
 curve = SubResource("Curve3D_luhhm")
+debug_custom_color = Color(1, 1, 1, 1)
 
 [node name="PathFollow3D" type="PathFollow3D" parent="isle-2/Boat2/Path3D" unique_id=2125368755]
 transform = Transform3D(0.84576434, 0, 0.53352946, 0, 0.99997586, 0, -0.53352773, 0, 0.8457671, -0.015825272, 0, 0.019731522)
 loop = false
 
 [node name="boat-row-small" parent="isle-2/Boat2/Path3D/PathFollow3D" unique_id=1262914405 instance=ExtResource("7_luhhm")]
-transform = Transform3D(-0.9939562, 2.3283445e-10, -0.109805316, -0.000499198, 1.0000005, 0.0045187376, 0.10980412, 0.004546189, -0.9939453, 0.096040726, -0.1613309, -0.1909728)
+transform = Transform3D(-0.9939562, 2.3283064e-10, -0.109805316, -0.00049919804, 1.0000005, 0.004518738, 0.10980412, 0.0045461897, -0.99394536, 0.096040726, -0.10627205, -0.19097137)
 metadata/_edit_group_ = true
 
 [node name="rocks-sand-a" parent="isle-2" unique_id=228621220 instance=ExtResource("13_ggc52")]
 transform = Transform3D(0.36726427, 0, 0.93011665, 0, 1, 0, -0.93011665, 0, 0.36726427, -2.3233795, -0.032957554, 6.1139374)
 
+[node name="rocks-sand-a3" parent="isle-2" unique_id=1112690772 instance=ExtResource("13_ggc52")]
+transform = Transform3D(-0.82350284, 0, -0.5673122, 0, 1, 0, 0.5673122, 0, -0.82350284, 4.7356434, -1.5382233, 6.872267)
+
 [node name="rocks-sand-a2" parent="isle-2" unique_id=497888687 instance=ExtResource("13_ggc52")]
-transform = Transform3D(0.36726427, 0, 0.93011665, 0, 1, 0, -0.93011665, 0, 0.36726427, -2.6648521, -0.032957554, 1.2288189)
+transform = Transform3D(0.36726427, 0, 0.93011665, -0.024250248, 0.9996601, 0.009575412, -0.9298005, -0.026072266, 0.36713943, -3.0608597, -0.032957554, 1.1300573)
 
 [node name="rocks-sand-b" parent="isle-2" unique_id=1421539703 instance=ExtResource("16_l8ah6")]
-transform = Transform3D(0.54201627, 0, -0.84036803, 0, 1, 0, 0.84036803, 0, 0.54201627, -2.334774, 0, 4.4117174)
-
-[node name="barrel" parent="isle-2/rocks-sand-b" unique_id=1758189573 instance=ExtResource("17_e75v4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2467537, 0.3542323, 0.3111248)
+transform = Transform3D(0.73406446, -0.04286887, -1.1381286, 0.023235623, 1.3543216, -0.036025625, 1.1386987, 0, 0.7344321, -2.334774, 0, 4.4117174)
 
 [node name="rocks-sand-b2" parent="isle-2" unique_id=1859814379 instance=ExtResource("16_l8ah6")]
-transform = Transform3D(-0.5971773, 0, 0.8021093, 0, 1, 0, -0.8021093, 0, -0.5971773, 0.55332947, 0, -5.2763195)
+transform = Transform3D(-0.59717727, 0, 0.80210924, -0.016336227, 0.9997926, -0.012162462, -0.8019429, -0.020366583, -0.5970534, 0.55332947, 0, -5.2763195)
 
 [node name="rocks-sand-b3" parent="isle-2" unique_id=2010305574 instance=ExtResource("16_l8ah6")]
-transform = Transform3D(-0.5971773, 0, 0.8021093, 0, 1, 0, -0.8021093, 0, -0.5971773, 3.5526772, 0, 0.36767006)
-
-[node name="bottle-large" parent="isle-2" unique_id=787119293 instance=ExtResource("8_fh13f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67980194, 0.3129766, 5.086364)
-metadata/_edit_group_ = true
+transform = Transform3D(-0.5969944, 0.024746241, 0.8018636, 0.014777894, 0.99969375, -0.019849192, -0.80210924, -5.551115e-17, -0.59717727, 3.5526772, 0, 0.36767006)
 
 [node name="bottle" parent="isle-2" unique_id=13931211 instance=ExtResource("9_rup4s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9388046, 1.0611743, 6.6567726)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.9388046, 1.0611743, 6.6567726)
 metadata/_edit_group_ = true
+
+[node name="ship-wreck" parent="isle-2" unique_id=304590257 instance=ExtResource("36_l8ah6")]
+transform = Transform3D(0.3977065, 0.25176954, -0.88229346, 0.18574408, 0.91960984, 0.34614497, 0.8985147, -0.30154493, 0.31897035, 3.677496, -1.3386796, 11.092941)
 
 [node name="isle-3" type="Node3D" parent="." unique_id=116577503]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2934113, 0, -37.319656)
@@ -259,6 +279,9 @@ transform = Transform3D(1.545, 0, 0, 0, 1.545, 0, 0, 0, 1.545, 3.5691204, 0, 4.1
 [node name="patch-grass-foliage6" parent="isle-3" unique_id=544241221 instance=ExtResource("1_xgqkh")]
 transform = Transform3D(0.051305532, 0, 1.5441478, 0, 1.545, 0, -1.5441478, 0, 0.051305532, -3.9983082, 0, -3.5615845)
 
+[node name="barrel" parent="isle-3/patch-grass-foliage6" unique_id=1859966488 instance=ExtResource("17_e75v4")]
+transform = Transform3D(0.33605006, 0, -0.5210283, 0, 0.6199999, 0, 0.5210283, 0, 0.33605006, 1.3749924, 0.1792492, 2.1427054)
+
 [node name="patch-grass2" parent="isle-3" unique_id=1113055020 instance=ExtResource("4_0nbtd")]
 transform = Transform3D(1.29, 0, 0, 0, 1.29, 0, 0, 0, 1.29, -0.47338867, 0, 0.8571415)
 
@@ -266,13 +289,13 @@ transform = Transform3D(1.29, 0, 0, 0, 1.29, 0, 0, 0, 1.29, -0.47338867, 0, 0.85
 transform = Transform3D(-1.2361343, 0, -0.18566811, 0, 1.25, 0, 0.18566811, 0, -1.2361343, 1.5507088, 9.536743e-07, -5.3887806)
 
 [node name="patch-sand5" parent="isle-3" unique_id=1125490787 instance=ExtResource("3_ts3gi")]
-transform = Transform3D(-1.2385595, 0, -0.048187334, 0, 1, 0, 0.059752293, 0, -0.9988383, -3.9187546, 0, 4.8582983)
+transform = Transform3D(0.6888796, 0, 0.49180958, 0, 0.742, 0, -0.60979086, 0, 0.55559635, -5.4283915, -9.536743e-07, 2.7820587)
 
 [node name="patch-sand6" parent="isle-3" unique_id=622938134 instance=ExtResource("3_ts3gi")]
 transform = Transform3D(0.74533415, 0, -0.79919183, 0, 1, 0, 0.99099797, 0, 0.601076, 2.9738693, 0, -1.070324)
 
 [node name="castle-wall" parent="isle-3" unique_id=655847693 instance=ExtResource("12_x2olw")]
-transform = Transform3D(-0.46853125, 0, -0.883447, 0, 1, 0, 0.883447, 0, -0.46853125, 10.628385, -1.9657722, -10.69455)
+transform = Transform3D(-0.29325616, 0, -0.9560339, 0, 1, 0, 0.9560339, 0, -0.29325616, 10.276165, -1.9657726, -10.753838)
 metadata/_edit_group_ = true
 
 [node name="castle-wall2" parent="isle-3" unique_id=1691035736 instance=ExtResource("12_x2olw")]
@@ -313,15 +336,21 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8458052, 0, 4.3816223)
 metadata/_edit_group_ = true
 
-[node name="structure-platform-dock-small" parent="isle-3" unique_id=967902052 instance=ExtResource("27_fh13f")]
-transform = Transform3D(0.39232108, 0, -0.91982836, 0, 1, 0, 0.91982836, 0, 0.39232108, -6.9334755, -0.15946078, 1.7308884)
-
-[node name="structure-platform" parent="isle-3" unique_id=1850004687 instance=ExtResource("25_navra")]
-transform = Transform3D(0.8307319, 0, 0.55667263, 0, 1, 0, -0.55667263, 0, 0.8307319, -0.48421383, -0.1918714, 7.340452)
-
 [node name="chest" parent="isle-3" unique_id=827452001 instance=ExtResource("14_ggc52")]
-transform = Transform3D(-0.553057, 0, 0.83314335, 0, 1, 0, -0.83314335, 0, -0.553057, -0.50843906, 0.5532017, 7.3067875)
+transform = Transform3D(-0.42926615, 0, 0.9031781, 0, 1, 0, -0.9031781, 0, -0.42926615, -6.4616785, 0.21102238, 3.574768)
 metadata/_edit_group_ = true
+
+[node name="tower-complete-large" parent="isle-3" unique_id=602215726 instance=ExtResource("37_e75v4")]
+transform = Transform3D(0.8599324, 0, -0.5104079, 0, 1, 0, 0.5104079, 0, 0.8599324, 1.3418417, 0, 20.159409)
+
+[node name="tower-complete-small" parent="isle-3" unique_id=541293204 instance=ExtResource("38_8u370")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.502777, 0, 13.197758)
+
+[node name="rocks-sand-b2" parent="isle-3" unique_id=301525720 instance=ExtResource("16_l8ah6")]
+transform = Transform3D(-0.98935175, -0.0179227, -0.14443713, -0.016336227, 0.99979264, -0.012162463, 0.14462528, -0.0096733915, -0.98943925, -3.0247498, 0.011800051, 2.3554192)
+
+[node name="rocks-sand-b3" parent="isle-3" unique_id=1066174839 instance=ExtResource("16_l8ah6")]
+transform = Transform3D(0.96901, 0.01283229, -0.24668807, -0.016336227, 0.99979264, -0.012162463, 0.24648073, 0.015815495, 0.9690186, -4.370941, -0.14227033, 0.75483704)
 
 [node name="sample-patches" type="Node3D" parent="." unique_id=2082298721]
 visible = false
@@ -373,18 +402,6 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.574532, 0, 2.9897518)
 metadata/_edit_group_ = true
 
-[node name="palm-bend" parent="sample-models" unique_id=1980534220 instance=ExtResource("22_18clu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.425959, 0, -2.0648994)
-metadata/_edit_group_ = true
-
-[node name="palm-detailed-bend" parent="sample-models" unique_id=634920507 instance=ExtResource("22_18clu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.030993, 0, -1.2757263)
-metadata/_edit_group_ = true
-
-[node name="palm-straight" parent="sample-models" unique_id=1530944412 instance=ExtResource("24_d46x8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2783957, 0, -3.3766403)
-metadata/_edit_group_ = true
-
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1402100074]
 transform = Transform3D(4.65, 0, 0, 0, -2.0325795e-07, 4.65, 0, -4.65, -2.0325795e-07, -15.573099, 0, -9.220174)
 visible = false
@@ -394,18 +411,38 @@ metadata/_edit_lock_ = true
 [node name="WaterMesh" type="MeshInstance3D" parent="." unique_id=1601863237]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0689106, 0.0015354156, 0.024312973)
 mesh = SubResource("PlaneMesh_1jxku")
+metadata/_edit_lock_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1665649284]
 environment = SubResource("Environment_ts3gi")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=277573266]
-transform = Transform3D(1, 0, 0, 0, 0.75482404, 0.6559273, 0, -0.6559273, 0.75482404, 0, 1.1395988, 0)
+transform = Transform3D(-0.45709786, -0.34323114, 0.82052046, 0, 0.92253804, 0.385906, -0.8894164, 0.17639682, -0.42169017, 0, 1.1395988, 0)
 shadow_enabled = true
 
 [node name="Player" parent="." unique_id=524498635 instance=ExtResource("37_ggc52")]
+transform = Transform3D(-0.55372584, 0, 0.83269906, 0, 1, 0, -0.83269906, 0, -0.55372584, 1.6884255, 0, -1.4173717)
 
 [node name="Area3D" parent="Player/XRCamera3D" parent_id_path=PackedInt32Array(524498635, 1069646456) index="0" unique_id=1527776220]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7595453, 0)
+
+[node name="LeftHandMesh" parent="Player/LeftHandController" parent_id_path=PackedInt32Array(524498635, 1209878385) index="0" unique_id=416374853]
+transform = Transform3D(-4.371139e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, -4.371139e-08, 1.9106855e-15, 0, 0, 0)
+
+[node name="RightHandMesh" parent="Player/RightHandController" parent_id_path=PackedInt32Array(524498635, 1830001096) index="0" unique_id=1506103605]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0, 0, 0)
+
+[node name="tool-shovel" parent="." unique_id=240882375 instance=ExtResource("38_e75v4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.8888395, 0.4963994, -1.7888589)
+
+[node name="crate" parent="." unique_id=334367968 instance=ExtResource("16_e75v4")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -28.401653, 0.25456834, -16.673113)
+
+[node name="flag-high-pennant" parent="." unique_id=1320314440 instance=ExtResource("39_8u370")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2972903, 2.0456915, -39.5711)
+
+[node name="cannon-mobile" parent="." unique_id=7725511 instance=ExtResource("40_rga7q")]
+transform = Transform3D(-0.41374284, -0.019275421, -0.9101897, -0.11467729, 0.99291587, 0.03110125, 0.90314245, 0.117246024, -0.4130224, -1.9703765, 0.26389813, -31.112453)
 
 [editable path="Player"]
 [editable path="Player/LeftHandController/LeftHandMesh"]

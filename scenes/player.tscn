@@ -20,9 +20,10 @@ shape = SubResource("SphereShape3D_g2els")
 [node name="LeftHandController" type="XRNode3D" parent="." unique_id=1209878385]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"/user/hand_tracker/left"
-pose = &"palm_pose"
+show_when_tracked = true
 
 [node name="LeftHandMesh" parent="LeftHandController" unique_id=416374853 instance=ExtResource("2_g2els")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="XRHandModifier3D" type="XRHandModifier3D" parent="LeftHandController/LeftHandMesh/Skeleton3D" parent_id_path=PackedInt32Array(416374853, 1186888435) index="1" unique_id=1341067242]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1, 0.5)
@@ -30,9 +31,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1, 0.5)
 [node name="RightHandController" type="XRNode3D" parent="." unique_id=1830001096]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"/user/hand_tracker/right"
-pose = &"palm_pose"
+show_when_tracked = true
 
 [node name="RightHandMesh" parent="RightHandController" unique_id=1506103605 instance=ExtResource("3_qhqgy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="XRHandModifier3D" type="XRHandModifier3D" parent="RightHandController/RightHandMesh/Skeleton3D" parent_id_path=PackedInt32Array(1506103605, 1106249026) index="1" unique_id=2003775514]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1, 0.5)

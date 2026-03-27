@@ -125,6 +125,8 @@ float edge_fade(vec2 uv, float size) {
 	return x1*x2*y1*y2;
 }
 
+uniform sampler2D noise;
+
 void vertex() {
 
 	// BOAT
@@ -148,6 +150,7 @@ void vertex() {
 	vec3 normal_b = texture(normal_map_texture, normal_uv - flow * phase_b).rgb;
 	float flow_lerp = abs(0.5 - phase_a)  / 0.5;
 	VERTEX.y = mix(normal_a, normal_b, flow_lerp).y / 10.0;
+	VERTEX.y += texture(noise, UV + vec2(TIME / 1000.0, TIME / 800.0)).r / 10.0;
 	
 }
 uniform float foam_vertex_height;
