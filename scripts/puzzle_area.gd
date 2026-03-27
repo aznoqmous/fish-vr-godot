@@ -5,9 +5,10 @@ extends Node3D
 @export var disabled_object: Node3D
 
 func _ready():
-	boat.set_visible(false)
-	boat.area_3d.monitoring = false
-	area_3d.area_entered.connect(func(area):
+	if boat:
+		boat.set_visible(false)
+		boat.area_3d.monitoring = false
+	area_3d.body_entered.connect(func(body):
 		if disabled_object: disabled_object.set_visible(false)
 		if boat:
 			boat.set_visible(true)
