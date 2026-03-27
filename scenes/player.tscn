@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://yeg45saesse1"]
 
+[ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://3gjkc6qju2n3" path="res://assets/hands/LeftHandHumanoid.gltf" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_dqkch"]
 [ext_resource type="PackedScene" uid="uid://bymg1qpy1tu2w" path="res://assets/hands/RightHandHumanoid.gltf" id="3_qhqgy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g2els"]
@@ -17,7 +19,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0496196, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XRCamera3D/Area3D" unique_id=1466564221]
 shape = SubResource("SphereShape3D_g2els")
 
-[node name="LeftHandController" type="XRNode3D" parent="." unique_id=1209878385]
+[node name="VRCommonShaderCache" parent="XRCamera3D" unique_id=134691354 instance=ExtResource("1_qhqgy")]
+
+[node name="LeftHandController" type="XRController3D" parent="." unique_id=1833123203]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"/user/hand_tracker/left"
 show_when_tracked = true
@@ -25,10 +29,14 @@ show_when_tracked = true
 [node name="LeftHandMesh" parent="LeftHandController" unique_id=416374853 instance=ExtResource("2_g2els")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="XRHandModifier3D" type="XRHandModifier3D" parent="LeftHandController/LeftHandMesh/Skeleton3D" parent_id_path=PackedInt32Array(416374853, 1186888435) index="1" unique_id=1341067242]
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="LeftHandController/LeftHandMesh/Skeleton3D" parent_id_path=PackedInt32Array(416374853, 216320458) index="1" unique_id=1341067242]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1, 0.5)
 
-[node name="RightHandController" type="XRNode3D" parent="." unique_id=1830001096]
+[node name="FunctionPickup" parent="LeftHandController" unique_id=1129601390 instance=ExtResource("3_dqkch")]
+grab_collision_mask = 360448
+ranged_collision_mask = 32768
+
+[node name="RightHandController" type="XRController3D" parent="." unique_id=920566091]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"/user/hand_tracker/right"
 show_when_tracked = true
@@ -36,9 +44,13 @@ show_when_tracked = true
 [node name="RightHandMesh" parent="RightHandController" unique_id=1506103605 instance=ExtResource("3_qhqgy")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="XRHandModifier3D" type="XRHandModifier3D" parent="RightHandController/RightHandMesh/Skeleton3D" parent_id_path=PackedInt32Array(1506103605, 1106249026) index="1" unique_id=2003775514]
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="RightHandController/RightHandMesh/Skeleton3D" parent_id_path=PackedInt32Array(1506103605, 1669350150) index="1" unique_id=2003775514]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1, 0.5)
 hand_tracker = &"/user/hand_tracker/right"
+
+[node name="FunctionPickup" parent="RightHandController" unique_id=367701007 instance=ExtResource("3_dqkch")]
+grab_collision_mask = 360448
+ranged_collision_mask = 32768
 
 [editable path="LeftHandController/LeftHandMesh"]
 [editable path="RightHandController/RightHandMesh"]
