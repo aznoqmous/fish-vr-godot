@@ -8,7 +8,7 @@ func _ready():
 	if boat:
 		boat.set_visible(false)
 		boat.area_3d.monitoring = false
-	area_3d.body_entered.connect(func(body):
+	area_3d.area_entered.connect(func(area):
 		if disabled_object: disabled_object.set_visible(false)
 		if boat:
 			boat.set_visible(true)
