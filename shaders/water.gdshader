@@ -150,7 +150,7 @@ void vertex() {
 	vec3 normal_b = texture(normal_map_texture, normal_uv - flow * phase_b).rgb;
 	float flow_lerp = abs(0.5 - phase_a)  / 0.5;
 	VERTEX.y = mix(normal_a, normal_b, flow_lerp).y / 10.0;
-	VERTEX.y += texture(noise, UV + vec2(TIME / 1000.0, TIME / 800.0)).r / 10.0;
+	VERTEX.y += texture(noise, (UV + vec2(TIME / 400.0, TIME / 320.0))).r / 3.0;
 	
 }
 uniform float foam_vertex_height;
