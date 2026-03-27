@@ -1,37 +1,35 @@
 [gd_scene format=3 uid="uid://cb1vh26xpoutg"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_817gm"]
-[ext_resource type="PackedScene" uid="uid://c81k6xm122av6" path="res://builds/FBX format/patch-grass-foliage.fbx" id="1_xgqkh"]
-[ext_resource type="PackedScene" uid="uid://bjj35d2iuekhr" path="res://builds/FBX format/patch-sand-foliage.fbx" id="2_munwf"]
-[ext_resource type="PackedScene" uid="uid://bk5wfamxldpi" path="res://builds/FBX format/patch-sand.fbx" id="3_ts3gi"]
-[ext_resource type="PackedScene" uid="uid://cg5ak5r1g6jr3" path="res://builds/FBX format/patch-grass.fbx" id="4_0nbtd"]
+[ext_resource type="Script" uid="uid://kqmgxq656dvh" path="res://scripts/main.gd" id="1_817gm"]
+[ext_resource type="PackedScene" uid="uid://da6kdtdod0w1u" path="res://assets/FBX format/patch-grass-foliage.fbx" id="1_xgqkh"]
+[ext_resource type="PackedScene" uid="uid://bcnud81fo20fr" path="res://assets/FBX format/patch-sand-foliage.fbx" id="2_munwf"]
+[ext_resource type="PackedScene" uid="uid://lsernwc1nh1x" path="res://assets/FBX format/patch-sand.fbx" id="3_ts3gi"]
+[ext_resource type="PackedScene" uid="uid://c18b25wysnu5q" path="res://assets/FBX format/patch-grass.fbx" id="4_0nbtd"]
 [ext_resource type="PackedScene" uid="uid://bpgxkn8ftt3lu" path="res://assets/FBX format/structure-platform-dock.fbx" id="4_37qwj"]
-[ext_resource type="PackedScene" uid="uid://chvyap03ape1t" path="res://builds/FBX format/barrel.fbx" id="5_37qwj"]
 [ext_resource type="Script" uid="uid://d2lpikklyiw2n" path="res://scripts/boat.gd" id="6_luhhm"]
-[ext_resource type="PackedScene" uid="uid://nasktnkevkf2" path="res://builds/FBX format/boat-row-small.fbx" id="7_luhhm"]
-[ext_resource type="PackedScene" uid="uid://dcyfbou8t4on6" path="res://builds/FBX format/bottle-large.fbx" id="8_fh13f"]
-[ext_resource type="PackedScene" uid="uid://cucufkik1g2ut" path="res://builds/FBX format/bottle.fbx" id="9_rup4s"]
-[ext_resource type="PackedScene" uid="uid://dfoah61u3ib0j" path="res://builds/FBX format/castle-door.fbx" id="10_4kbfs"]
+[ext_resource type="PackedScene" uid="uid://ja721oaf1smj" path="res://assets/FBX format/boat-row-small.fbx" id="7_luhhm"]
+[ext_resource type="PackedScene" uid="uid://dh3tdx2rxj851" path="res://assets/FBX format/bottle-large.fbx" id="8_fh13f"]
+[ext_resource type="PackedScene" uid="uid://boug8eo0fgqy8" path="res://assets/FBX format/bottle.fbx" id="9_rup4s"]
+[ext_resource type="PackedScene" uid="uid://qi7ecs6fsplg" path="res://assets/FBX format/castle-door.fbx" id="10_4kbfs"]
 [ext_resource type="PackedScene" uid="uid://ci13tfe7x1tf4" path="res://assets/FBX format/rocks-a.fbx" id="10_f17e3"]
-[ext_resource type="PackedScene" uid="uid://b1q1tqgyt0ka" path="res://builds/FBX format/castle-gate.fbx" id="11_f17e3"]
+[ext_resource type="PackedScene" uid="uid://csslblmrjtju0" path="res://assets/FBX format/castle-gate.fbx" id="11_f17e3"]
 [ext_resource type="PackedScene" uid="uid://dwvsi4tgyt7nb" path="res://assets/FBX format/rocks-b.fbx" id="11_x2olw"]
 [ext_resource type="PackedScene" uid="uid://8dhpuknhv2mv" path="res://assets/FBX format/rocks-c.fbx" id="12_817gm"]
-[ext_resource type="PackedScene" uid="uid://cbsxrsrv33e0u" path="res://builds/FBX format/castle-wall.fbx" id="12_x2olw"]
-[ext_resource type="PackedScene" uid="uid://chtyjxkguxo7n" path="res://builds/FBX format/castle-window.fbx" id="13_817gm"]
+[ext_resource type="PackedScene" uid="uid://c76h1n2pe7tao" path="res://assets/FBX format/castle-wall.fbx" id="12_x2olw"]
+[ext_resource type="PackedScene" uid="uid://cjnwrt52pxngi" path="res://assets/FBX format/castle-window.fbx" id="13_817gm"]
 [ext_resource type="PackedScene" uid="uid://c2nspi3agslby" path="res://assets/FBX format/rocks-sand-a.fbx" id="13_ggc52"]
-[ext_resource type="PackedScene" uid="uid://g4fm7gf81uyj" path="res://builds/FBX format/chest.fbx" id="14_ggc52"]
-[ext_resource type="PackedScene" uid="uid://c1u7s0bwycbux" path="res://builds/FBX format/crate-bottles.fbx" id="15_l8ah6"]
-[ext_resource type="PackedScene" uid="uid://h7ylmt3ot6de" path="res://builds/FBX format/crate.fbx" id="16_e75v4"]
+[ext_resource type="PackedScene" uid="uid://bmpisb2okj4c" path="res://assets/FBX format/chest.fbx" id="14_ggc52"]
+[ext_resource type="PackedScene" uid="uid://dma2owq18hrqo" path="res://assets/FBX format/crate-bottles.fbx" id="15_l8ah6"]
+[ext_resource type="PackedScene" uid="uid://b2go56vxnhyl4" path="res://assets/FBX format/crate.fbx" id="16_e75v4"]
 [ext_resource type="PackedScene" uid="uid://ih7uj7x2iblm" path="res://assets/FBX format/rocks-sand-b.fbx" id="16_l8ah6"]
-[ext_resource type="PackedScene" uid="uid://cas3gtux84s2a" path="res://builds/FBX format/grass-patch.fbx" id="17_8u370"]
+[ext_resource type="PackedScene" uid="uid://dmlgsbw4tia5i" path="res://assets/FBX format/grass-patch.fbx" id="17_8u370"]
 [ext_resource type="PackedScene" uid="uid://85be6wvlg211" path="res://assets/FBX format/barrel.fbx" id="17_e75v4"]
-[ext_resource type="PackedScene" uid="uid://b1vbaxtaa0s48" path="res://builds/FBX format/grass-plant.fbx" id="18_rga7q"]
-[ext_resource type="PackedScene" uid="uid://bntiffqao1bwy" path="res://builds/FBX format/grass.fbx" id="19_6oujy"]
-[ext_resource type="PackedScene" uid="uid://boofsc0nvdfh6" path="res://builds/FBX format/hole.fbx" id="20_hi6a0"]
-[ext_resource type="PackedScene" uid="uid://dbeu28x75g2r3" path="res://builds/FBX format/palm-bend.fbx" id="21_eo1xk"]
-[ext_resource type="PackedScene" uid="uid://c28fbix5vllkl" path="res://builds/FBX format/palm-detailed-bend.fbx" id="22_18clu"]
-[ext_resource type="PackedScene" uid="uid://dtgd2u8nidafm" path="res://builds/FBX format/palm-detailed-straight.fbx" id="23_4wdv8"]
-[ext_resource type="PackedScene" uid="uid://dnmysxaqg55hc" path="res://builds/FBX format/palm-straight.fbx" id="24_d46x8"]
+[ext_resource type="PackedScene" uid="uid://dt33umiyepir4" path="res://assets/FBX format/grass-plant.fbx" id="18_rga7q"]
+[ext_resource type="PackedScene" uid="uid://dkfpstr84ydwd" path="res://assets/FBX format/grass.fbx" id="19_6oujy"]
+[ext_resource type="PackedScene" uid="uid://cd14x7k2ko2xm" path="res://assets/FBX format/hole.fbx" id="20_hi6a0"]
+[ext_resource type="PackedScene" uid="uid://dvfp2m78typpg" path="res://assets/FBX format/palm-detailed-bend.fbx" id="22_18clu"]
+[ext_resource type="PackedScene" uid="uid://dcidtehr2n24w" path="res://assets/FBX format/palm-detailed-straight.fbx" id="23_4wdv8"]
+[ext_resource type="PackedScene" uid="uid://bfi4e3wabyfkb" path="res://assets/FBX format/palm-straight.fbx" id="24_d46x8"]
 [ext_resource type="PackedScene" uid="uid://bjw6nv0o4rjor" path="res://assets/FBX format/structure-platform.fbx" id="25_navra"]
 [ext_resource type="PackedScene" uid="uid://csbype2lqfiju" path="res://assets/FBX format/structure-platform-dock-small.fbx" id="27_fh13f"]
 [ext_resource type="Shader" uid="uid://dxhapermvsiqc" path="res://shaders/water.gdshader" id="36_x2olw"]
@@ -56,7 +54,6 @@ _data = {
 point_count = 5
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x2olw"]
-load_path = "res://.godot/imported/Nouveau projet (35).png-ca6bd6247064af34d55bb7858d1498f6.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_817gm"]
 render_priority = 0
@@ -344,7 +341,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.88348, 0, -12.939291)
 [node name="sample-models" type="Node3D" parent="." unique_id=164656241]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.90788, -3.8146973e-06, -9.784996)
 
-[node name="barrel" parent="sample-models" unique_id=1117937502 instance=ExtResource("5_37qwj")]
+[node name="barrel" parent="sample-models" unique_id=1117937502 instance=ExtResource("17_e75v4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8087406, 0, 1.4541731)
 metadata/_edit_group_ = true
 
@@ -376,7 +373,7 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.574532, 0, 2.9897518)
 metadata/_edit_group_ = true
 
-[node name="palm-bend" parent="sample-models" unique_id=1980534220 instance=ExtResource("21_eo1xk")]
+[node name="palm-bend" parent="sample-models" unique_id=1980534220 instance=ExtResource("22_18clu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.425959, 0, -2.0648994)
 metadata/_edit_group_ = true
 
@@ -409,9 +406,6 @@ shadow_enabled = true
 
 [node name="Area3D" parent="Player/XRCamera3D" parent_id_path=PackedInt32Array(524498635, 1069646456) index="0" unique_id=1527776220]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7595453, 0)
-
-[node name="CollisionShape3D" parent="Player/XRCamera3D/Area3D" index="0" unique_id=1466564221]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [editable path="Player"]
 [editable path="Player/LeftHandController/LeftHandMesh"]
